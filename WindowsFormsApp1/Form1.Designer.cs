@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.stockage = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -143,7 +143,7 @@ namespace WindowsFormsApp1
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackColor = System.Drawing.Color.Aqua;
             this.button2.Location = new System.Drawing.Point(223, 225);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 34);
@@ -187,15 +187,16 @@ namespace WindowsFormsApp1
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button8
+            // stockage
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button8.Location = new System.Drawing.Point(548, 12);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(119, 66);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "stockage\r\n";
-            this.button8.UseVisualStyleBackColor = false;
+            this.stockage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.stockage.Location = new System.Drawing.Point(548, 12);
+            this.stockage.Name = "stockage";
+            this.stockage.Size = new System.Drawing.Size(119, 66);
+            this.stockage.TabIndex = 7;
+            this.stockage.Text = "stockage\r\n";
+            this.stockage.UseVisualStyleBackColor = false;
+            this.stockage.Click += new System.EventHandler(this.stockage_Click);
             // 
             // button9
             // 
@@ -243,13 +244,13 @@ namespace WindowsFormsApp1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(825, 450);
+            this.ClientSize = new System.Drawing.Size(871, 450);
             this.ControlBox = false;
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.stockage);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -274,7 +275,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button stockage;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
     class declaration
     {
 
-public static SqlConnection con = new SqlConnection(@"Data Source =DESKTOP - 3VUS80A;Initial Catalog = master;Integrated Security = True");
+public static SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-QTLF4OF;Initial Catalog=data;Integrated Security=True");
        
 
         public static SqlCommand cmd = new SqlCommand("SELECT * FROM medicaments",con);

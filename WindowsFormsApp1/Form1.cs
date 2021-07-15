@@ -15,16 +15,16 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-
-
+        public static Form1 instance;
 
 
         public Form1()
         {
             InitializeComponent();
+            instance = this;
         }
         
-        public static SqlConnection con = new SqlConnection(@"Data Source =DESKTOP-3VUS80A;Initial Catalog = master;Integrated Security = True");
+        public static SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-QTLF4OF;Initial Catalog=data;Integrated Security=True");
 
         public static SqlCommand cmd = new SqlCommand("SELECT * FROM medicaments", con);
         public static SqlDataAdapter dap = new SqlDataAdapter(cmd);
@@ -45,8 +45,8 @@ namespace WindowsFormsApp1
         {
             listView1.View = View.Details;
             listView1.Columns.Add("idM", 60);
-            listView1.Columns.Add("nom", 150);
-            listView1.Columns.Add("type", 150);
+            listView1.Columns.Add("nom", 80);
+            listView1.Columns.Add("typeM", 80);
 
 
         }
@@ -96,12 +96,12 @@ namespace WindowsFormsApp1
             if (textBox1.Text != "" && textBox3.Text != "" && textBox6.Text != "")
             {
                 //public static SqlCommand cmd2 = new SqlCommand("insert into medicaments values(@id, @n, @ty)", con);
-                SqlCommand cmd2 = new SqlCommand("INSERT INTO  medicaments (idM, nom, type) VALUES (@idM, @nom, @type)", con);
+                SqlCommand cmd2 = new SqlCommand("INSERT INTO  medicaments (idM, nom, typeM) VALUES (@idM, @nom, @typeM)", con);
 
 
                 cmd2.Parameters.AddWithValue("@idM", textBox1.Text);
                 cmd2.Parameters.AddWithValue("@nom", textBox3.Text);
-                cmd2.Parameters.AddWithValue("@type", textBox6.Text);
+                cmd2.Parameters.AddWithValue("@typeM", textBox6.Text);
                 con.Open();
                 cmd2.ExecuteNonQuery();
 
@@ -136,10 +136,10 @@ namespace WindowsFormsApp1
             for (int i = 0; i < ds.Tables["med"].Rows.Count; i++)
             {
                 ListViewItem lvi = new ListViewItem();
-                // lvi.Text = ds.Tables["med"].Rows[i][0].ToString();
-                lvi.SubItems.Add(ds.Tables["med"].Rows[i][0].ToString());
+                lvi.Text = ds.Tables["med"].Rows[i][0].ToString();
                 lvi.SubItems.Add(ds.Tables["med"].Rows[i][1].ToString());
                 lvi.SubItems.Add(ds.Tables["med"].Rows[i][2].ToString());
+                //lvi.SubItems.Add(ds.Tables["med"].Rows[i][2].ToString());
                 listView1.Items.Add(lvi);
 
 
@@ -187,10 +187,10 @@ namespace WindowsFormsApp1
         {
             if (textBox1.Text != "")
             {
-                SqlCommand uCommand = new SqlCommand("update medicaments SET nom=@nom,type=@type WHERE idM=@idM", con);
+                SqlCommand uCommand = new SqlCommand("update medicaments SET nom=@nom,typeM=@typeM WHERE idM=@idM", con);
                 uCommand.Parameters.AddWithValue("@idM", textBox1.Text);
                 uCommand.Parameters.AddWithValue("@nom", textBox3.Text);
-                uCommand.Parameters.AddWithValue("@type", textBox6.Text);
+                uCommand.Parameters.AddWithValue("@typeM", textBox6.Text);
                 con.Open();
                 uCommand.ExecuteNonQuery();
 
@@ -249,6 +249,12 @@ namespace WindowsFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void stockage_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
         }
     }
 }
